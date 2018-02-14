@@ -3,6 +3,8 @@ pragma solidity ^0.4.16;
 contract owned {
 	address public owner;
 
+	event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
 	function owned() public {
 		owner = msg.sender;
 	}
@@ -13,6 +15,8 @@ contract owned {
 	}
 
 	function transferOwnership(address newOwner) onlyOwner public {
+		require(newOwner != address(0));
+		OwnershipTransferred(owner, newOwner);
 		owner = newOwner;
 	}
 }
@@ -276,7 +280,7 @@ contract Pausable is owned {
 contract WangWangToken is AdvancedToken, Pausable {
 
 	uint256 public initialSupply = 100000000; //100,000,000
-	string public tokenName = "WangWangToken";
+	string public tokenName = "Wang-Wang Token";
 	string public tokenSymbol = "WWT";
 
 	function WangWangToken() AdvancedToken(initialSupply, tokenName, tokenSymbol) public {}
