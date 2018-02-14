@@ -240,7 +240,7 @@ contract Pausable is owned {
 	bool public paused = false;
 
 	/**
-	 * @dev modifier to allow actions only when the contract IS paused
+	 * @dev modifier to allow actions only when the contract IS NOT paused
 	 */
 	modifier whenNotPaused() {
 		require(!paused);
@@ -248,7 +248,7 @@ contract Pausable is owned {
 	}
 
 	/**
-	 * @dev modifier to allow actions only when the contract IS NOT paused
+	 * @dev modifier to allow actions only when the contract IS paused
 	 */
 	modifier whenPaused {
 		require(paused);
