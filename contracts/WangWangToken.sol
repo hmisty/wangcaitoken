@@ -57,7 +57,7 @@ contract TokenERC20 {
 	 * Internal transfer, only can be called by this contract
 	 */
 	function _transfer(address _from, address _to, uint _value) internal {
-		//require(_value > 0); //unit will never be less than zero ;)
+		//require(_value > 0); //uint will never be less than zero ;)
 		// Prevent transfer to 0x0 address. Use burn() instead
 		require(_to != 0x0);
 		// Check if the sender has enough
@@ -113,7 +113,7 @@ contract TokenERC20 {
 	 */
 	function approve(address _spender, uint256 _value) public
 	returns (bool success) {
-		//require(_value > 0); //unit will never be less than zero ;)
+		//require(_value > 0); //uint will never be less than zero ;)
 		allowance[msg.sender][_spender] = _value;
 		return true;
 	}
@@ -144,7 +144,7 @@ contract TokenERC20 {
 	 * @param _value the amount of money to burn
 	 */
 	function burn(uint256 _value) public returns (bool success) {
-		//require(_value > 0); //unit will never be less than zero ;)
+		//require(_value > 0); //uint will never be less than zero ;)
 		require(balanceOf[msg.sender] >= _value);   // Check if the sender has enough
 		balanceOf[msg.sender] -= _value;            // Subtract from the sender
 		totalSupply -= _value;                      // Updates totalSupply
