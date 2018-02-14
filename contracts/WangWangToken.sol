@@ -247,7 +247,7 @@ contract Pausable is owned {
 	 * @dev modifier to allow actions only when the contract IS NOT paused
 	 */
 	modifier whenPaused {
-		require(!paused);
+		require(paused);
 		_;
 	}
 
@@ -271,15 +271,15 @@ contract Pausable is owned {
 }
 
 /******************************************/
-/*   WANG CAI TOKEN (WANG) STARTS HERE     */
+/*   WANG-WANG TOKEN (WWT) STARTS HERE     */
 /******************************************/
-contract WangCaiToken is AdvancedToken, Pausable {
+contract WangWangToken is AdvancedToken, Pausable {
 
 	uint256 public initialSupply = 100000000; //100,000,000
-	string public tokenName = "WangCaiToken";
-	string public tokenSymbol = "WANG";
+	string public tokenName = "WangWangToken";
+	string public tokenSymbol = "WWT";
 
-	function WangCaiToken() AdvancedToken(initialSupply, tokenName, tokenSymbol) public {}
+	function WangWangToken() AdvancedToken(initialSupply, tokenName, tokenSymbol) public {}
 
 	function transfer(address _to, uint256 _value) whenNotPaused public {
 		super.transfer(_to, _value);
