@@ -1,5 +1,5 @@
-var WCTContract = artifacts.require("./WangCaiToken.sol");
+var TokenContract = artifacts.require("./WangWangToken.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(WCTContract);
+  deployer.deploy(TokenContract);
 };
